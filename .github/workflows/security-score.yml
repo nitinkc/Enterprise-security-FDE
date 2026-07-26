@@ -1,0 +1,63 @@
+name: Security Score (Trivy + Semgrep)
+
+on:
+  pull_request:
+  schedule:
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scans:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Trivy
+        uses: aquasecurity/setup-trivy@v0.2.2
+
+      - name: Install Semgrep
+        run: python3 -m pip install --upgrade pip semgrep
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Run Trivy filesystem scan
+        run: trivy fs --format json --output trivy.json .
+
+      - name: Run Semgrep scan
+        run: semgrep --config auto --json --output semgrep.json .
+
+      - name: Calculate security score
+        run: bash scripts/security-score.sh trivy.json semgrep.json
+
+      - name: Print score
+        run: cat security-score.json
+
+      - name: Upload score artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-score
+          path: |
+            trivy.json
+            semgrep.json
+            security-score.json
+
+      - name: Enforce critical policy
+        run: |
+          critical=$(jq -r '.critical' security-score.json)
+          score=$(jq -r '.score' security-score.json)
+
+          if [ "$critical" -gt 0 ]; then
+            echo "Blocking merge: critical vulnerabilities detected ($critical)."
+            exit 1
+          fi
+
+          if [ "$score" -lt 75 ]; then
+            echo "Blocking merge: security score below policy threshold ($score < 75)."
+            exit 1
+          fi

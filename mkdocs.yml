@@ -1,0 +1,84 @@
+site_name: Enterprise Security Learning Path for Forward Deployed Engineers
+site_description: CISO-style step-by-step guide to build enterprise security depth as a senior developer
+site_url: http://localhost:8000
+repo_name: fde-security-learning
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: blue
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+  - Getting Started: GETTING_STARTED.md
+  - Introduction:
+      - Learning Path: 00-introduction/01-learning-path.md
+  - Fundamentals:
+      - Core Concepts: 01-fundamentals/01-core-concepts.md
+      - Key Principles: 01-fundamentals/02-key-principles.md
+  - Intermediate:
+      - Building Blocks: 02-intermediate/01-building-blocks.md
+      - Practical Applications: 02-intermediate/02-practical-applications.md
+      - Spring Boot API Security Flow: 02-intermediate/03-spring-boot-api-security-flow.md
+  - Advanced:
+      - Advanced Patterns: 03-advanced/01-advanced-patterns.md
+      - Production Considerations: 03-advanced/02-production-considerations.md
+  - Reference:
+      - Quick Reference: reference/01-quick-reference.md
+      - Cheatsheet: reference/02-cheatsheet.md
+      - Interview Q and A: reference/03-interview-qa.md
+      - GitHub Security Automation: reference/04-github-security-automation.md
+      - PR Secure Code Review Checklist: reference/05-pr-secure-code-review-checklist.md
+      - API Security Regression Test Pack: reference/06-api-security-regression-test-pack.md
+      - GCP Incident Runbooks: reference/07-gcp-incident-runbooks.md
+      - Secure Coding Standards (Spring Boot): reference/08-secure-coding-standards-spring-boot.md
+
+markdown_extensions:
+  - abbr
+  - attr_list
+  - md_in_html
+  - footnotes
+  - def_list
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - css/extra.css
+
+extra_javascript:
+  - js/mathjax.js
+  - js/mermaid-init.js
+  - js/theme-toggle.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
+
+plugins:
+  - search
