@@ -15,32 +15,38 @@ Moving into enterprise security can feel overwhelming because the problem space 
 
 | Your Question | Where You Will Learn It |
 |---|---|
-| What security considerations matter most in my organization first? | Fundamentals and Intermediate architecture sections |
-| How do I run security testing continuously without slowing delivery? | Intermediate practical applications |
-| How do I reduce vulnerabilities and attacks over time? | Advanced operating model and metrics sections |
-| How do I become one of the strongest engineers on the security team? | Full path with 30, 60, and 90 day milestones |
+| What security considerations matter most in my organization first? | Sequences 1–3: threats, identity, data, and platform |
+| How do I run security testing continuously without slowing delivery? | Sequence 4: supply chain and secure CI/CD |
+| How do I reduce vulnerabilities and attacks over time? | Sequence 5: operations, incidents, and governance |
+| How do I become one of the strongest engineers on the security team? | Sequence 6 plus the 30, 60, and 90 day milestones |
 
 ## Recommended Reading Flow
+
+Start with the [capability map](00-introduction/02-capability-map.md), then learn the [reference enterprise system](00-introduction/02-reference-enterprise-system.md). Use the [adaptive learning system](00-introduction/03-adaptive-learning-system.md) after each exercise. If the work is for DaVita, apply the [enterprise guardrails](03-advanced/03-davita-enterprise-guardrails.md) throughout rather than waiting until the end.
 
 ```mermaid
 flowchart TB
     S[Start] --> P[Learning Path]
-    P --> F1[Core Concepts]
-    F1 --> F2[Key Principles]
-    F2 --> I1[Building Blocks]
-    I1 --> I2[Practical Applications]
-    I2 --> A1[Advanced Patterns]
-    A1 --> A2[Production Considerations]
-    A2 --> R[Reference and Q and A Practice]
+    P --> CM[Capability Map]
+    CM --> RS[Reference Enterprise System]
+    RS --> S1[1 Thinking, Threats, Identity]
+    S1 --> S2[2 API, Application, Data]
+    S2 --> S3[3 Cloud, Platform, Network, Crypto]
+    S3 --> S4[4 Supply Chain and CI/CD]
+    S4 --> S5[5 Operations and Governance]
+    S5 --> S6[6 Architecture, AI, FDE]
+    S6 --> R[Reference and Capstone Practice]
+    R --> AD[Adaptive Reassessment]
+    AD --> CM
 
     style S fill:#1976d2,color:#fff
     style P fill:#1976d2,color:#fff
-    style F1 fill:#1976d2,color:#fff
-    style F2 fill:#1976d2,color:#fff
-    style I1 fill:#ff9800,color:#fff
-    style I2 fill:#ff9800,color:#fff
-    style A1 fill:#ff9800,color:#fff
-    style A2 fill:#ff9800,color:#fff
+    style S1 fill:#1976d2,color:#fff
+    style S2 fill:#1976d2,color:#fff
+    style S3 fill:#ff9800,color:#fff
+    style S4 fill:#ff9800,color:#fff
+    style S5 fill:#1976d2,color:#fff
+    style S6 fill:#ff9800,color:#fff
     style R fill:#1976d2,color:#fff
 ```
 
@@ -52,6 +58,10 @@ flowchart TB
 | Keep one weekly risk journal | Record top risks, decisions, and what changed after actions. |
 | Practice one scenario per week | Build fluency in response and communication under pressure. |
 | Use both light and dark themes | Reduce fatigue during long learning and incident sessions. |
+
+## Safe Practice Boundary
+
+Use synthetic data and isolated, authorized environments for all exercises. Never place PHI, PII, production credentials, internal hostnames, or restricted architecture in this repository or in external AI tools. Before active testing, document the target, techniques, time window, owner, rollback path, and explicit authorization.
 
 ## Local Tooling Bootstrap
 

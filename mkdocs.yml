@@ -31,6 +31,16 @@ nav:
   - Getting Started: GETTING_STARTED.md
   - Introduction:
       - Learning Path: 00-introduction/01-learning-path.md
+      - Capability Map: 00-introduction/02-capability-map.md
+      - Reference Enterprise System: 00-introduction/02-reference-enterprise-system.md
+      - Adaptive Learning System: 00-introduction/03-adaptive-learning-system.md
+  - Sequential Curriculum:
+      - 1. Thinking, Threats, Identity: 04-curriculum/01-security-thinking-threats-identity.md
+      - 2. API, Application, Data: 04-curriculum/02-api-application-data.md
+      - 3. Cloud, Platform, Network, Crypto: 04-curriculum/03-cloud-platform-network-crypto.md
+      - 4. Supply Chain and CI/CD: 04-curriculum/04-supply-chain-cicd.md
+      - 5. Operations and Governance: 04-curriculum/05-security-operations-governance.md
+      - 6. Architecture, AI, FDE: 04-curriculum/06-architecture-ai-fde.md
   - Fundamentals:
       - Core Concepts: 01-fundamentals/01-core-concepts.md
       - Key Principles: 01-fundamentals/02-key-principles.md
@@ -67,6 +77,7 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.details
+  - pymdownx.snippets
   - pymdownx.tabbed:
       alternate_style: true
 

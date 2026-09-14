@@ -22,21 +22,32 @@ You asked for a CISO-style plan that teaches security considerations and securit
 
 | Section | Outcome | Difficulty |
 |---|---|---|
-| Fundamentals | Understand risk, controls, and enterprise threat modeling basics | 🟢 |
-| Intermediate | Build secure architecture and practical test workflows | 🟡 |
-| Advanced | Operate a production security program with metrics and governance | 🔴 |
-| Reference | Fast lookup for daily work and interview-style drills | 🟢 to 🔴 |
+| Sequences 1–2 | Security thinking, threats, identity, APIs, applications, and data | Foundation |
+| Sequences 3–4 | GCP, Kubernetes, networks, cryptography, supply chain, and CI/CD | Practitioner |
+| Sequences 5–6 | Incidents, observability, vulnerabilities, governance, architecture, AI, and FDE leadership | Advanced |
+| Reference | Fast lookup, regression packs, standards, and runbooks | All levels |
+
+## Curriculum Operating Model
+
+Use the [Enterprise Security Capability Map](00-introduction/02-capability-map.md) as the complete domain index. Every module evolves the same [reference enterprise system](00-introduction/02-reference-enterprise-system.md), and the [adaptive learning system](00-introduction/03-adaptive-learning-system.md) selects exercises from demonstrated gaps rather than pages completed. For DaVita delivery work, apply the [enterprise guardrails](03-advanced/03-davita-enterprise-guardrails.md) and verify every requirement against current authoritative internal policy.
+
+The guide separates four kinds of content so it remains maintainable:
+
+- **Learn:** durable concepts and security decision models;
+- **Apply:** architecture, implementation, and negative-testing exercises;
+- **Operate:** detection, incident, vulnerability, and governance workflows;
+- **Reference:** concise checklists and runbooks for delivery work.
 
 ## Quick Navigation
 
 === "First 30 Days"
-    Start with Fundamentals and the Learning Path page. Focus on asset criticality, threat modeling, and access-control hygiene.
+    Complete [Sequence 1](04-curriculum/01-security-thinking-threats-identity.md) and [Sequence 2](04-curriculum/02-api-application-data.md). Produce a threat model, identity matrix, API deny tests, and data-flow classification.
 
 === "60 Day Builder"
-    Move to Intermediate pages and implement testing pipelines, triage workflows, and secure delivery controls.
+    Complete [Sequence 3](04-curriculum/03-cloud-platform-network-crypto.md) and [Sequence 4](04-curriculum/04-supply-chain-cicd.md). Produce cloud/platform control evidence and a verifiable secure delivery path.
 
 === "90 Day Leader"
-    Focus on Advanced pages for operating model design, security SLOs, and executive reporting patterns.
+    Complete [Sequence 5](04-curriculum/05-security-operations-governance.md) and [Sequence 6](04-curriculum/06-architecture-ai-fde.md). Lead an incident exercise and defend the final architecture capstone.
 
 ## Real-World Execution Starter
 
