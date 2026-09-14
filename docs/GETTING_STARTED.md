@@ -22,7 +22,7 @@ Moving into enterprise security can feel overwhelming because the problem space 
 
 ## Recommended Reading Flow
 
-Start with the [capability map](00-introduction/02-capability-map.md), then learn the [reference enterprise system](00-introduction/02-reference-enterprise-system.md). Use the [adaptive learning system](00-introduction/03-adaptive-learning-system.md) after each exercise. If the work is for DaVita, apply the [enterprise guardrails](03-advanced/03-davita-enterprise-guardrails.md) throughout rather than waiting until the end.
+Start with the [capability map](00-introduction/02-capability-map.md), then learn the [reference enterprise system](00-introduction/02-reference-enterprise-system.md). Use the [adaptive learning system](00-introduction/03-adaptive-learning-system.md) after each exercise. For enterprise delivery work, apply current organizational guardrails throughout rather than waiting until the end, and verify requirements against authoritative internal policy.
 
 ```mermaid
 flowchart TB

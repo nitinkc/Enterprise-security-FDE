@@ -29,7 +29,7 @@ You asked for a CISO-style plan that teaches security considerations and securit
 
 ## Curriculum Operating Model
 
-Use the [Enterprise Security Capability Map](00-introduction/02-capability-map.md) as the complete domain index. Every module evolves the same [reference enterprise system](00-introduction/02-reference-enterprise-system.md), and the [adaptive learning system](00-introduction/03-adaptive-learning-system.md) selects exercises from demonstrated gaps rather than pages completed. For DaVita delivery work, apply the [enterprise guardrails](03-advanced/03-davita-enterprise-guardrails.md) and verify every requirement against current authoritative internal policy.
+Use the [Enterprise Security Capability Map](00-introduction/02-capability-map.md) as the complete domain index. Every module evolves the same [reference enterprise system](00-introduction/02-reference-enterprise-system.md), and the [adaptive learning system](00-introduction/03-adaptive-learning-system.md) selects exercises from demonstrated gaps rather than pages completed. For enterprise delivery work, apply current organizational guardrails and verify every requirement against authoritative internal policy.
 
 The guide separates four kinds of content so it remains maintainable:
 
