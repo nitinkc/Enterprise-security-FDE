@@ -1,0 +1,2115 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="CISO-style step-by-step guide to build enterprise security depth as a senior developer">
+      
+      
+      
+        <link rel="canonical" href="http://localhost:8000/04-curriculum/03-cloud-platform-network-crypto/">
+      
+      
+        <link rel="prev" href="../02-api-application-data/">
+      
+      
+        <link rel="next" href="../04-supply-chain-cicd/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>3. Cloud, Platform, Network, Crypto - Enterprise Security Learning Path for Forward Deployed Engineers</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sequence-3-gcp-kubernetes-network-and-cryptography" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Enterprise Security Learning Path for Forward Deployed Engineers" class="md-header__button md-logo" aria-label="Enterprise Security Learning Path for Forward Deployed Engineers" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Enterprise Security Learning Path for Forward Deployed Engineers
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Cloud, Platform, Network, Crypto
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../GETTING_STARTED/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00-introduction/01-learning-path/" class="md-tabs__link">
+          
+  
+  
+  Introduction
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-security-thinking-threats-identity/" class="md-tabs__link">
+          
+  
+  
+  Sequential Curriculum
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-fundamentals/01-core-concepts/" class="md-tabs__link">
+          
+  
+  
+  Fundamentals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-intermediate/01-building-blocks/" class="md-tabs__link">
+          
+  
+  
+  Intermediate
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-advanced/01-advanced-patterns/" class="md-tabs__link">
+          
+  
+  
+  Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/01-quick-reference/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Enterprise Security Learning Path for Forward Deployed Engineers" class="md-nav__button md-logo" aria-label="Enterprise Security Learning Path for Forward Deployed Engineers" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Enterprise Security Learning Path for Forward Deployed Engineers
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GETTING_STARTED/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-introduction/01-learning-path/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Path
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-introduction/02-capability-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capability Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-introduction/02-reference-enterprise-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference Enterprise System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-introduction/03-adaptive-learning-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adaptive Learning System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sequential Curriculum
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sequential Curriculum
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-security-thinking-threats-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Thinking, Threats, Identity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-api-application-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. API, Application, Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Cloud, Platform, Network, Crypto
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Cloud, Platform, Network, Crypto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#phase-7-gcp-security-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 7 — GCP Security Model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 7 — GCP Security Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-session-7-bound-the-gcp-blast-radius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Session 7 — Bound the GCP Blast Radius
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-8-kubernetes-and-gke-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 8 — Kubernetes and GKE Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 8 — Kubernetes and GKE Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-session-8-contain-a-compromised-pod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Session 8 — Contain a Compromised Pod
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-9-network-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 9 — Network Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 9 — Network Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-session-9-design-reachability-as-a-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Session 9 — Design Reachability as a Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-10-secrets-and-cryptography" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 10 — Secrets and Cryptography
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 10 — Secrets and Cryptography">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-session-10-choose-and-operate-security-primitives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Session 10 — Choose and Operate Security Primitives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-supply-chain-cicd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Supply Chain and CI/CD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-security-operations-governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Operations and Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-architecture-ai-fde/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Architecture, AI, FDE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-fundamentals/01-core-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-fundamentals/02-key-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Key Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intermediate
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Intermediate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-intermediate/01-building-blocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building Blocks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-intermediate/02-practical-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practical Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-intermediate/03-spring-boot-api-security-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spring Boot API Security Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-advanced/01-advanced-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-advanced/02-production-considerations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Considerations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/01-quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/02-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/03-interview-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Q and A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/04-github-security-automation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Security Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/05-pr-secure-code-review-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PR Secure Code Review Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/06-api-security-regression-test-pack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Security Regression Test Pack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/07-gcp-incident-runbooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GCP Incident Runbooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/08-secure-coding-standards-spring-boot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Coding Standards (Spring Boot)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#phase-7-gcp-security-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 7 — GCP Security Model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 7 — GCP Security Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-session-7-bound-the-gcp-blast-radius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Session 7 — Bound the GCP Blast Radius
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-8-kubernetes-and-gke-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 8 — Kubernetes and GKE Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 8 — Kubernetes and GKE Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-session-8-contain-a-compromised-pod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Session 8 — Contain a Compromised Pod
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-9-network-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 9 — Network Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 9 — Network Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-session-9-design-reachability-as-a-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Session 9 — Design Reachability as a Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-10-secrets-and-cryptography" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 10 — Secrets and Cryptography
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 10 — Secrets and Cryptography">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-session-10-choose-and-operate-security-primitives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Session 10 — Choose and Operate Security Primitives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sequence-3-gcp-kubernetes-network-and-cryptography">Sequence 3: GCP, Kubernetes, Network, and Cryptography</h1>
+<p><strong>Phases 7–10 · Prerequisite:</strong> Sequence 2 · <strong>Outcome:</strong> constrain cloud and platform blast radius while preserving operability.</p>
+<h2 id="phase-7-gcp-security-model">Phase 7 — GCP Security Model</h2>
+<p>GCP authorization evaluates a principal’s permissions through resource hierarchy and policy. Design organization, folder, project, and resource boundaries to match ownership and blast radius; do not use projects only as billing containers.</p>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Enterprise Decisions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IAM</td>
+<td>Custom/predefined roles, additive membership, conditions, impersonation, access review</td>
+</tr>
+<tr>
+<td>Organization policy</td>
+<td>Domain restriction, approved regions, no SA keys, no default VPC/external IP</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>Shared VPC, subnet boundaries, hierarchical firewall, private access, NAT, PSC</td>
+</tr>
+<tr>
+<td>Compute</td>
+<td>Hardened images, Shielded VM, patching, metadata protection, workload identity</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>Uniform bucket access, public-access prevention, retention, logging, CMEK need</td>
+</tr>
+<tr>
+<td>Cloud SQL</td>
+<td>Private IP, TLS, database IAM, backups/PITR, audit, maintenance</td>
+</tr>
+<tr>
+<td>BigQuery</td>
+<td>Dataset/table scope, policy tags, row access, export and query monitoring</td>
+</tr>
+<tr>
+<td>Operations</td>
+<td>Admin/Data Access audit logs, SCC, Monitoring, SIEM routing, retention</td>
+</tr>
+</tbody>
+</table>
+<p>DaVita-specific pipelines centrally enforce important policies. Review whether the gate ran and whether suppressions are justified; do not duplicate automated findings. Use Workload Identity Federation instead of service-account keys and resource-level IAM members instead of authoritative project policy replacement.</p>
+<p><strong>Exercise:</strong> Trace a CI identity deploying the API and a runtime identity reading one Secret Manager secret and one database. Export IAM evidence and prove neither identity can perform the other’s job.</p>
+<h3 id="learning-session-7-bound-the-gcp-blast-radius">Learning Session 7 — Bound the GCP Blast Radius</h3>
+<p><strong>Objective:</strong> Turn GCP hierarchy, IAM, network, compute, data, and logging into enforceable trust boundaries.</p>
+<p><strong>Scenario:</strong> CI and runtime share credentials, projects are billing containers, broad IAM is inherited, and internet access is the default.</p>
+<p><strong>Facilitator flow:</strong> Start with one CI-to-runtime deployment flow. Ask what each identity can do now before discussing target controls.</p>
+<ol>
+<li>Which organization, folder, project, and resource boundaries match ownership and impact?</li>
+<li>What exact permissions do CI, deployer, runtime, operator, and auditor identities require?</li>
+<li>How do federation, impersonation, conditions, and organization policies constrain credential abuse?</li>
+<li>Which ingress, egress, private-connectivity, and storage decisions limit reachable assets?</li>
+<li>What can still happen after one runtime identity is compromised?</li>
+<li>Which IAM export, denied action, audit event, and recovery action prove the boundary?</li>
+</ol>
+<p><strong>Artifact:</strong> GCP resource/identity map and least-privilege CI-to-runtime access design.</p>
+<p><strong>Evidence gate:</strong> CI cannot read runtime data, runtime cannot deploy or administer IAM, public paths are justified, and relevant Admin and Data Access logs support investigation.</p>
+<p><strong>Adaptive branch:</strong> If predefined broad roles are accepted without proof, derive permissions from observed actions. If strong, add a cross-project analytics dependency and emergency operator access.</p>
+<h2 id="phase-8-kubernetes-and-gke-security">Phase 8 — Kubernetes and GKE Security</h2>
+<p>Assume one pod will eventually be compromised. Prevent that event from becoming node, cluster, project, or data compromise.</p>
+<ul>
+<li>use dedicated Kubernetes and Google service accounts with workload identity;</li>
+<li>restrict RBAC verbs, resources, namespaces, impersonation, and secret access;</li>
+<li>enforce restricted pod security: non-root, no privilege escalation, read-only root filesystem, dropped capabilities, seccomp;</li>
+<li>avoid host PID/network/path, privileged containers, unsafe device mounts, and broad node metadata access;</li>
+<li>apply default-deny ingress and egress NetworkPolicies with DNS and required dependencies allowed;</li>
+<li>scan and pin images by digest; verify signatures/provenance through admission policy;</li>
+<li>separate sensitive workloads and control-plane/node administration;</li>
+<li>encrypt and minimize secrets, rotate them, and prefer managed secret delivery;</li>
+<li>log admission, RBAC, workload identity, exec, and high-risk API activity.</li>
+</ul>
+<p><strong>Exercise:</strong> Given a compromised API pod, map reachable services, mounted data, Kubernetes permissions, cloud permissions, node paths, and egress. Reduce each path and verify denials from inside an authorized test pod.</p>
+<h3 id="learning-session-8-contain-a-compromised-pod">Learning Session 8 — Contain a Compromised Pod</h3>
+<p><strong>Objective:</strong> Prevent one exploited workload from becoming cluster, project, or data compromise.</p>
+<p><strong>Scenario:</strong> The API pod runs as root, mounts a namespace service-account token, has broad egress, and maps to a Google service account with data access.</p>
+<p><strong>Facilitator flow:</strong> Assume code execution is already achieved. Require the learner to enumerate real post-compromise paths before proposing controls.</p>
+<ol>
+<li>Which files, environment values, volumes, services, APIs, and metadata can the pod reach?</li>
+<li>Which Kubernetes RBAC and cloud IAM actions are available to its identities?</li>
+<li>Can the workload access host namespaces, node resources, privileged devices, or other tenants?</li>
+<li>Which pod-security, identity, network, secret, image, and admission controls break each path?</li>
+<li>How would containment affect availability and forensic evidence?</li>
+<li>Which commands from a test pod prove denied lateral movement and privilege escalation?</li>
+</ol>
+<p><strong>Artifact:</strong> Pod-compromise attack graph and a prioritized containment plan.</p>
+<p><strong>Evidence gate:</strong> Restricted pod settings, dedicated identities, default-deny network policy, minimal RBAC/IAM, trusted images, and auditable exec/admission activity are demonstrated with negative tests.</p>
+<p><strong>Adaptive branch:</strong> If the learner focuses only on pod settings, supply an overprivileged cloud identity. If all paths are constrained, add a compromised node or admission-controller outage.</p>
+<h2 id="phase-9-network-security">Phase 9 — Network Security</h2>
+<p>A network control changes reachability; it does not prove business authorization. Model source, destination, protocol, port, identity, encryption, direction, purpose, and owner.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Security Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNS</td>
+<td>Resolution trust, private zones, rebinding, exfiltration, logging</td>
+</tr>
+<tr>
+<td>TCP/IP</td>
+<td>Spoofing limits, state, exhaustion, segmentation, flow visibility</td>
+</tr>
+<tr>
+<td>TLS</td>
+<td>Certificate chain, hostname, protocol/cipher policy, expiry, revocation</td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td>Method/path, headers, request smuggling, caching, CORS, security headers</td>
+</tr>
+<tr>
+<td>Edge</td>
+<td>WAF, load balancer, API gateway, DDoS, rate limits, origin protection</td>
+</tr>
+<tr>
+<td>Service</td>
+<td>mTLS/workload identity, authorization, retries, timeouts, circuit breaking</td>
+</tr>
+<tr>
+<td>Egress</td>
+<td>NAT visibility, destination control, proxies, exfiltration and SSRF resistance</td>
+</tr>
+</tbody>
+</table>
+<p>Private IP, VPN, and mTLS reduce specific threats but do not replace application authorization. Segmentation should limit lateral movement and support containment. For every rule ask which attack it prevents, what legitimate flow it enables, how it is tested, and how stale access is removed.</p>
+<h3 id="learning-session-9-design-reachability-as-a-control">Learning Session 9 — Design Reachability as a Control</h3>
+<p><strong>Objective:</strong> Connect network rules to explicit attack paths, legitimate flows, identity, and containment.</p>
+<p><strong>Scenario:</strong> The API is behind a VPN, services share a flat private network, outbound traffic is unrestricted, and the database accepts all private sources.</p>
+<p><strong>Facilitator flow:</strong> Do not accept “internal” or “encrypted” as authorization. Evaluate one source-to-destination flow at a time.</p>
+<ol>
+<li>What source, destination, protocol, port, direction, purpose, and owner define the flow?</li>
+<li>Which attacker position and attack path does each edge, firewall, segmentation, or egress control reduce?</li>
+<li>What identity and application authorization remain necessary after reachability is granted?</li>
+<li>How do DNS, TLS validation, HTTP behavior, proxies, and retries change the threat?</li>
+<li>How does segmentation limit lateral movement and permit incident containment?</li>
+<li>How is allowed connectivity, denied connectivity, certificate failure, and stale-rule removal tested?</li>
+</ol>
+<p><strong>Artifact:</strong> Connectivity matrix and segmented network/data-flow diagram.</p>
+<p><strong>Evidence gate:</strong> Every allowed path has a business purpose and owner; denied lateral and egress paths are tested; TLS identity is validated; application authorization remains explicit.</p>
+<p><strong>Adaptive branch:</strong> If the learner relies on VPN or private IP, compromise an internal workstation or pod. If successful, add DNS manipulation and a required third-party egress path.</p>
+<h2 id="phase-10-secrets-and-cryptography">Phase 10 — Secrets and Cryptography</h2>
+<p>Use well-reviewed libraries and managed services. Never design custom encryption, signature, password storage, random-number generation, key exchange, certificate validation, or token formats.</p>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Primitive</th>
+<th>Frequent Error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Password verification</td>
+<td>Memory-hard password KDF with unique salt</td>
+<td>Fast hash or reversible encryption</td>
+</tr>
+<tr>
+<td>Confidentiality</td>
+<td>Authenticated symmetric encryption</td>
+<td>Reused nonce or encryption without integrity</td>
+</tr>
+<tr>
+<td>Integrity/authenticity</td>
+<td>HMAC or digital signature as appropriate</td>
+<td>Treating plain hash as authenticity</td>
+</tr>
+<tr>
+<td>Key establishment</td>
+<td>Standard asymmetric/key-exchange protocol</td>
+<td>Custom handshake</td>
+</tr>
+<tr>
+<td>Transport identity</td>
+<td>TLS with hostname and chain validation</td>
+<td>Disabling verification</td>
+</tr>
+<tr>
+<td>Service credential</td>
+<td>Short-lived federated workload identity</td>
+<td>Static API key or SA key</td>
+</tr>
+</tbody>
+</table>
+<p>Manage generation, storage, distribution, use, rotation, revocation, recovery, and destruction. Separate keys from ciphertext and operators from key administration where risk warrants it. Rotation requires consumers, overlap, rollback, and evidence—not only a changed secret version.</p>
+<p><strong>Evidence gate:</strong> Connectivity matrix, GKE escalation test, IAM export, TLS validation, secret inventory, rotation drill, KMS audit trail, and incident containment path.</p>
+<h3 id="learning-session-10-choose-and-operate-security-primitives">Learning Session 10 — Choose and Operate Security Primitives</h3>
+<p><strong>Objective:</strong> Select standard cryptographic mechanisms and operate their full key and credential lifecycle.</p>
+<p><strong>Scenario:</strong> The platform stores passwords with a fast hash, signs internal tokens with a shared secret, disables TLS verification for a partner, and rotates credentials without overlap testing.</p>
+<p><strong>Facilitator flow:</strong> Ask what security property and attacker are in scope before selecting any primitive.</p>
+<ol>
+<li>Is the requirement confidentiality, integrity, authenticity, password verification, transport identity, or key establishment?</li>
+<li>Which approved primitive or managed service supplies that property, and what assumptions does it make?</li>
+<li>How would nonce reuse, weak randomness, disabled certificate validation, or shared keys fail?</li>
+<li>Which secrets can be replaced with short-lived federated identity?</li>
+<li>How are generation, storage, distribution, use, rotation, revocation, recovery, and destruction handled?</li>
+<li>What evidence proves rotation overlap, rollback, consumer migration, and key-use auditing?</li>
+</ol>
+<p><strong>Artifact:</strong> Secret and key inventory with purpose, owner, storage, consumers, rotation, revocation, and recovery decisions.</p>
+<p><strong>Evidence gate:</strong> Password storage uses an approved password KDF, transport validates identity, custom cryptography is absent, static credentials are minimized, and a rotation drill succeeds without losing auditability.</p>
+<p><strong>Adaptive branch:</strong> If algorithms are chosen by name alone, change the required property. If the lifecycle is strong, add a compromised key administrator and partial regional outage.</p>
+<p><strong>Next:</strong> <a href="../04-supply-chain-cicd/">Sequence 4 — Supply chain and secure delivery</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="../../js/mermaid-init.js"></script>
+      
+        <script src="../../js/theme-toggle.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
