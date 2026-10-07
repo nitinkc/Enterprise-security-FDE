@@ -2,6 +2,8 @@
 
 **Phases 7–10 · Prerequisite:** Sequence 2 · **Outcome:** constrain cloud and platform blast radius while preserving operability.
 
+**Concept reading thread:** [Cryptography Basics](cryptography-basics.md) → [HTTPS and TLS](https-tls.md) → [Network Protection](network-protection.md) → [Secrets Management](secrets-management.md). Apply each concept to GCP and GKE rather than treating the technology name as the control.
+
 ## Phase 7 — GCP Security Model
 
 GCP authorization evaluates a principal’s permissions through resource hierarchy and policy. Design organization, folder, project, and resource boundaries to match ownership and blast radius; do not use projects only as billing containers.
@@ -154,4 +156,4 @@ Manage generation, storage, distribution, use, rotation, revocation, recovery, a
 
 **Adaptive branch:** If algorithms are chosen by name alone, change the required property. If the lifecycle is strong, add a compromised key administrator and partial regional outage.
 
-**Next:** [Sequence 4 — Supply chain and secure delivery](04-supply-chain-cicd.md).
+**Next:** [Sequence 4 — Supply chain and secure delivery](../05-secure-delivery-operations/software-supply-chain-cicd.md).

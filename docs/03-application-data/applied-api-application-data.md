@@ -2,6 +2,8 @@
 
 **Phases 4–6 · Prerequisite:** Sequence 1 · **Outcome:** convert identity and threat decisions into secure Spring Boot behavior and data controls.
 
+**Concept reading thread:** [API Security](api-security.md) → [Web Attacks and OWASP Top 10](web-attacks-owasp.md) → [Spring Boot API Security Flow](spring-boot-api-security-flow.md). Use the articles to recognize controls and attack classes, then prove them through deny-path tests and data-lifecycle evidence.
+
 ## Phase 4 — API Security
 
 Inventory every route, method, caller, authentication mechanism, authorization rule, request source, response classification, rate limit, and outbound dependency. Map findings to the current OWASP API Security Top 10, but fix the underlying design rather than the label.
@@ -130,4 +132,4 @@ Encryption at rest and TLS protect different attack paths; neither fixes excessi
 
 **Adaptive branch:** If encryption is presented as sufficient, compromise an authorized query identity. If the design is strong, add a legal hold and an analytics vendor requiring minimized data.
 
-**Next:** [Sequence 3 — GCP, Kubernetes, network, and cryptography](03-cloud-platform-network-crypto.md).
+**Next:** [Sequence 3 — GCP, Kubernetes, network, and cryptography](../04-platform-runtime/applied-cloud-platform-network-crypto.md).

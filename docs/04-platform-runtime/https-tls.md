@@ -1,0 +1,231 @@
+---
+title: HTTPS
+date: 2024-06-28 11:02:00
+categories:
+- System Design
+tags:
+- Security
+---
+
+HTTPS transmits **encrypted** data using Transport Layer Security (TLS) while
+HTTP Sends data in plane text.
+
+[https://raw.githubusercontent.com/ByteByteGoHq/system-design-101/main/images/https.jpg](https://raw.githubusercontent.com/ByteByteGoHq/system-design-101/main/images/https.jpg)
+
+![](https://raw.githubusercontent.com/ByteByteGoHq/system-design-101/main/images/https.jpg)
+
+TLS : Transport layer security
+
+```md
+Client                                      Server
+  |                                             |
+  |------ TCP SYN ----------------------------->|
+  |                                             |
+  |<----- TCP SYN-ACK --------------------------|
+  |                                             |
+  |------ TCP ACK ----------------------------->|
+  |                                             |
+  |------ Client Hello ------------------------>|
+  |                                             |
+  |<------ Server Hello ------------------------|
+  |                                             |
+  |<------ Server Certificate ------------------|
+  |                                             |
+  |<------ Server Key Exchange (optional) ------|
+  |                                             |
+  |<------ Server Hello Done -------------------|
+  |                                             |
+  |------ Client Key Exchange ----------------->|
+  |                                             |
+  |------ Change Cipher Spec ------------------>|
+  |                                             |
+  |------ Client Finished --------------------->|
+  |                                             |
+  |<------ Change Cipher Spec ------------------|
+  |                                             |
+  |<------ Server Finished ---------------------|
+  |                                             |
+  |------------- Secure Communication --------->|
+  |<------------ Secure Communication ----------|
+```
+
+# TCP Handshake:
+
+SYN: The client sends a TCP SYN packet to the server to start the connection.
+
+SYN-ACK: The server responds with a TCP SYN-ACK packet.
+
+ACK: The client sends a TCP ACK packet, completing the TCP handshake and
+establishing the connection.
+
+# SSL/TLS Handshake:
+
+##### Client Hello:
+
+The client initiates the handshake with a "Client Hello" message containing:
+
+- Supported SSL/TLS versions
+- Supported cipher suites (encryption algorithms)
+- Random number (Client Random)
+
+##### Server Hello:
+
+The server responds with a "Server Hello" message containing:
+
+- Chosen SSL/TLS version
+- Chosen cipher suite
+- Random number (Server Random)
+
+##### Server Certificate:
+
+The server sends its digital certificate to the client for authentication.
+
+- the public key, host name, expiry dates, etc
+
+##### Server Key Exchange (if required):
+
+The server may send additional key exchange parameters.
+
+##### Server Hello Don
+
+The server indicates that it has finished the initial negotiation with a "Server
+Hello Done" message.
+
+##### Client Key Exchange
+
+The client generates a pre-master secret (a session key), encrypts it with the
+server's public key (from the server's certificate),
+and sends it to the server. The server receives the encrypted session key and
+decrypts it with the private key.
+
+##### Change Cipher Spec (Client):
+
+The client sends a "Change Cipher Spec" message to indicate it will start using
+the negotiated cipher suite.
+
+##### Client Finished:
+
+The client sends a "Client Finished" message encrypted with the new cipher
+suite.
+
+##### Change Cipher Spec (Server):
+
+The server sends a "Change Cipher Spec" message to indicate it will start using
+the negotiated cipher suite.
+
+##### Server Finished:
+
+The server sends a "Server Finished" message encrypted with the new cipher
+suite.
+
+##### Secure Communication:
+
+After the handshake, both the client and server can securely communicate using
+the established encryption parameters.
+The TCP handshake ensures the connection is established, acknowledged, and ready
+for the SSL/TLS handshake to provide secure communication.
+
+# Certificate Chain of Trust
+
+The server certificate is only meaningful because a **Certificate Authority
+(CA)** vouches for it. Verification walks a chain:
+
+```text
+Browser's trust store (pre-installed)
+        │
+        ▼
+Root CA ──signs──> Intermediate CA ──signs──> leaf cert (api.example.com)
+```
+
+The client checks each signature, the hostname, and the expiry. A self-signed
+cert breaks the chain at the top — fine for dev, rejected by browsers.
+
+- **Revocation**: CRL lists, OCSP stapling, or short-lived certs
+  (Let's Encrypt = 90 days)
+- Background on signatures/PKI:
+  [Cryptography Basics](cryptography-basics.md)
+
+# TLS 1.2 vs TLS 1.3
+
+| | TLS 1.2 | TLS 1.3 |
+|--|---------|---------|
+| Handshake | 2 round trips | 1 round trip (0-RTT resumption possible) |
+| Key exchange | RSA or (EC)DHE | (EC)DHE **only** — forward secrecy mandatory |
+| Cipher suites | Long negotiated list | 5 AEAD suites; weak crypto (RC4, 3DES, CBC, SHA-1) removed |
+| Certificate | Sent in plaintext | Encrypted |
+
+The diagram above is the TLS 1.2 flow. In 1.3 the server sends its key-share
+with the Server Hello, collapsing Server Key Exchange / Change Cipher Spec /
+Server Finished into fewer messages.
+
+# HSTS
+
+HTTP Strict Transport Security — a response header
+(`Strict-Transport-Security: max-age=...`) telling the browser to *only* use
+HTTPS for that domain. Prevents SSL-stripping downgrade attacks where an
+attacker intercepts the first HTTP request before the redirect to HTTPS.
+
+# mTLS (Mutual TLS)
+
+Normal TLS authenticates only the **server**. In mTLS the client also presents
+a certificate during the handshake — the server validates it against its own
+trusted CA before completing the handshake.
+
+```text
+Client                                Server
+  |── Client Hello ────────────────────>|
+  |<── Server Hello + Certificate +     |
+  |    CertificateRequest ──────────────|
+  |── Client Certificate +              |
+  |   Key Exchange + Finished ─────────>|
+  |<── Server Finished ─────────────────|
+```
+
+Used for **service-to-service auth** (service meshes like Istio/Linkerd),
+API clients, and B2B integrations — the certificate *is* the credential, so
+no passwords/tokens travel on the wire. Trade-off: cert provisioning,
+rotation, and revocation are operationally heavy; that's why internal mTLS
+is usually delegated to a mesh or cert-manager.
+
+# Why does HTTPS switch to symmetric encryption during data transmission?
+
+1. Performance Efficiency
+
+**Symmetric encryption is faster**: Symmetric encryption algorithms, such as
+AES (Advanced Encryption Standard), are
+computationally less intensive than asymmetric encryption algorithms like RSA.
+
+This means they can encrypt and decrypt data much faster, making them suitable
+for handling large volumes of data during an ongoing session.
+
+**Reduced computational load:** Asymmetric encryption requires complex
+mathematical operations, which can be slow and resource-intensive.
+By switching to symmetric encryption after the initial handshake, HTTPS reduces
+the computational load on both the client and the server,
+improving overall performance and responsiveness.
+
+It is not suitable for data transmissions in long sessions.
+
+3. Security Strength
+
+**Security:** The asymmetric encryption goes only one way.
+
+This means that if the server tries to send the encrypted data back to the
+client, anyone can decrypt the data using the public key.
+
+**Strength of symmetric encryption**: Symmetric encryption algorithms are **very
+secure** when properly used,
+and they offer strong encryption for data in transit. They are well-suited for
+maintaining the confidentiality and integrity of the data being transmitted.
+
+Key exchange security: During the initial SSL/TLS handshake, **asymmetric
+encryption** is used to securely exchange a symmetric key (or pre-master
+secret).
+Once this key exchange is securely completed, both parties use the symmetric key
+for the rest of the session.
+
+This leverages the security benefits of asymmetric encryption for the key
+exchange process while taking advantage of the
+efficiency of symmetric encryption for data transmission.
+
+![](https://www.youtube.com/watch?v=j9QmMEWmcfo)

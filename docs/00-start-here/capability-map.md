@@ -62,13 +62,13 @@ A capability is production-ready only when the learner can:
 - identify logs, alerts, containment actions, and recovery ownership;
 - communicate a practical recommendation without overstating certainty.
 
-Continue with the [reference enterprise system](02-reference-enterprise-system.md), then study the complete curriculum in order:
+Continue with the [reference enterprise system](reference-enterprise-system.md), then study the complete curriculum in order:
 
-1. [Security thinking, threats, and identity](../04-curriculum/01-security-thinking-threats-identity.md)
-2. [API, application, and data security](../04-curriculum/02-api-application-data.md)
-3. [GCP, Kubernetes, network, and cryptography](../04-curriculum/03-cloud-platform-network-crypto.md)
-4. [Software supply chain and secure delivery](../04-curriculum/04-supply-chain-cicd.md)
-5. [Security operations, vulnerabilities, and governance](../04-curriculum/05-security-operations-governance.md)
-6. [Security architecture, AI, and FDE leadership](../04-curriculum/06-architecture-ai-fde.md)
+1. [Security thinking, threats, and identity](../01-security-thinking-trust/applied-security-thinking-threats-identity.md)
+2. [API, application, and data security](../03-application-data/applied-api-application-data.md)
+3. [GCP, Kubernetes, network, and cryptography](../04-platform-runtime/applied-cloud-platform-network-crypto.md)
+4. [Software supply chain and secure delivery](../05-secure-delivery-operations/software-supply-chain-cicd.md)
+5. [Security operations, vulnerabilities, and governance](../05-secure-delivery-operations/security-operations-governance.md)
+6. [Security architecture, AI, and FDE leadership](../06-architecture-leadership/security-architecture-ai-fde.md)
 
-Use the [adaptive learning system](03-adaptive-learning-system.md) after each sequence to revisit gaps before advancing.
+Use the [adaptive learning system](adaptive-learning-system.md) after each sequence to revisit gaps before advancing.

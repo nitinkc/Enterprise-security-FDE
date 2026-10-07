@@ -2,6 +2,8 @@
 
 **Phases 17–18 plus FDE practice · Prerequisite:** Sequence 5 · **Outcome:** design and defend viable enterprise solutions under technical, regulatory, and delivery constraints.
 
+**Learning thread:** Synthesize every prior unit: threat and identity models define trust, application and platform controls constrain attack paths, and delivery and operations provide evidence and recovery. Use [Advanced Security Patterns](advanced-security-patterns.md) for reusable architecture techniques, then complete the final sessions and capstone.
+
 ## Phase 17 — Security Architecture Method
 
 For every architecture:
@@ -118,4 +120,4 @@ Secure the reference platform for a new partner and sensitive-data workflow. Del
 
 Pass when reviewers can reproduce the evidence, understand residual risk, identify the decision owner, and operate or recover the system without relying on undocumented expert knowledge.
 
-**Continue:** Repeat the [adaptive learning system](../00-introduction/03-adaptive-learning-system.md) with harder constraints and revisit weak domains.
+**Continue:** Repeat the [adaptive learning system](../00-start-here/adaptive-learning-system.md) with harder constraints and revisit weak domains.

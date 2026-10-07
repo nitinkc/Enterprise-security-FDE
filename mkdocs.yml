@@ -28,38 +28,54 @@ theme:
 
 nav:
   - Home: index.md
-  - Getting Started: GETTING_STARTED.md
-  - Introduction:
-      - Learning Path: 00-introduction/01-learning-path.md
-      - Capability Map: 00-introduction/02-capability-map.md
-      - Reference Enterprise System: 00-introduction/02-reference-enterprise-system.md
-      - Adaptive Learning System: 00-introduction/03-adaptive-learning-system.md
-  - Sequential Curriculum:
-      - 1. Thinking, Threats, Identity: 04-curriculum/01-security-thinking-threats-identity.md
-      - 2. API, Application, Data: 04-curriculum/02-api-application-data.md
-      - 3. Cloud, Platform, Network, Crypto: 04-curriculum/03-cloud-platform-network-crypto.md
-      - 4. Supply Chain and CI/CD: 04-curriculum/04-supply-chain-cicd.md
-      - 5. Operations and Governance: 04-curriculum/05-security-operations-governance.md
-      - 6. Architecture, AI, FDE: 04-curriculum/06-architecture-ai-fde.md
-  - Fundamentals:
-      - Core Concepts: 01-fundamentals/01-core-concepts.md
-      - Key Principles: 01-fundamentals/02-key-principles.md
-  - Intermediate:
-      - Building Blocks: 02-intermediate/01-building-blocks.md
-      - Practical Applications: 02-intermediate/02-practical-applications.md
-      - Spring Boot API Security Flow: 02-intermediate/03-spring-boot-api-security-flow.md
-  - Advanced:
-      - Advanced Patterns: 03-advanced/01-advanced-patterns.md
-      - Production Considerations: 03-advanced/02-production-considerations.md
+  - Start Here:
+      - Security Learning Roadmap: 00-start-here/security-learning-roadmap.md
+      - Getting Started: 00-start-here/getting-started.md
+      - Learning Path: 00-start-here/learning-path.md
+      - Capability Map: 00-start-here/capability-map.md
+      - Reference Enterprise System: 00-start-here/reference-enterprise-system.md
+      - Adaptive Learning System: 00-start-here/adaptive-learning-system.md
+  - 1. Security Thinking and Trust:
+      - Security Fundamentals: 01-security-thinking-trust/security-fundamentals.md
+      - Core Concepts: 01-security-thinking-trust/core-concepts.md
+      - Key Principles: 01-security-thinking-trust/key-principles.md
+      - Applied Sessions: 01-security-thinking-trust/applied-security-thinking-threats-identity.md
+  - 2. Identity and Access:
+      - Password Storage: 02-identity-access/password-storage.md
+      - Authentication Mechanisms: 02-identity-access/authentication-mechanisms.md
+      - Sessions, Tokens, and JWT: 02-identity-access/sessions-tokens-jwt.md
+      - OAuth 2.0 and OIDC: 02-identity-access/oauth2-oidc.md
+      - Enterprise SSO: 02-identity-access/enterprise-sso.md
+      - Authorization Models: 02-identity-access/authorization-models.md
+  - 3. Application and Data Protection:
+      - API Security: 03-application-data/api-security.md
+      - Web Attacks and OWASP: 03-application-data/web-attacks-owasp.md
+      - Security Building Blocks: 03-application-data/security-building-blocks.md
+      - Practical Applications: 03-application-data/practical-applications.md
+      - Spring Boot API Security Flow: 03-application-data/spring-boot-api-security-flow.md
+      - Applied Sessions: 03-application-data/applied-api-application-data.md
+  - 4. Platform and Runtime Security:
+      - Cryptography Basics: 04-platform-runtime/cryptography-basics.md
+      - HTTPS and TLS: 04-platform-runtime/https-tls.md
+      - Network Protection: 04-platform-runtime/network-protection.md
+      - Secrets Management: 04-platform-runtime/secrets-management.md
+      - Applied Sessions: 04-platform-runtime/applied-cloud-platform-network-crypto.md
+  - 5. Secure Delivery and Operations:
+      - Software Supply Chain and CI/CD: 05-secure-delivery-operations/software-supply-chain-cicd.md
+      - Security Operations and Governance: 05-secure-delivery-operations/security-operations-governance.md
+      - Production Considerations: 05-secure-delivery-operations/production-considerations.md
+  - 6. Architecture and Leadership:
+      - Advanced Security Patterns: 06-architecture-leadership/advanced-security-patterns.md
+      - Security Architecture, AI, and FDE: 06-architecture-leadership/security-architecture-ai-fde.md
   - Reference:
-      - Quick Reference: reference/01-quick-reference.md
-      - Cheatsheet: reference/02-cheatsheet.md
-      - Interview Q and A: reference/03-interview-qa.md
-      - GitHub Security Automation: reference/04-github-security-automation.md
-      - PR Secure Code Review Checklist: reference/05-pr-secure-code-review-checklist.md
-      - API Security Regression Test Pack: reference/06-api-security-regression-test-pack.md
-      - GCP Incident Runbooks: reference/07-gcp-incident-runbooks.md
-      - Secure Coding Standards (Spring Boot): reference/08-secure-coding-standards-spring-boot.md
+      - Quick Reference: 07-reference/01-quick-reference.md
+      - Cheatsheet: 07-reference/02-cheatsheet.md
+      - Interview Q and A: 07-reference/03-interview-qa.md
+      - GitHub Security Automation: 07-reference/04-github-security-automation.md
+      - PR Secure Code Review Checklist: 07-reference/05-pr-secure-code-review-checklist.md
+      - API Security Regression Test Pack: 07-reference/06-api-security-regression-test-pack.md
+      - GCP Incident Runbooks: 07-reference/07-gcp-incident-runbooks.md
+      - Secure Coding Standards (Spring Boot): 07-reference/08-secure-coding-standards-spring-boot.md
 
 exclude_docs: |
   AGENTS.md
@@ -77,7 +93,6 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.details

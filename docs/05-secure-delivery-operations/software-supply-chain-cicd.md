@@ -2,6 +2,8 @@
 
 **Phases 11–12 · Prerequisite:** Sequence 3 · **Outcome:** establish trust from source change to running artifact without turning security into indiscriminate pipeline friction.
 
+**Learning thread:** Return to [Secrets Management](../04-platform-runtime/secrets-management.md) for CI identity and credential handling, then trace trust from reviewed source through dependencies, builders, artifacts, deployment identity, and runtime admission. The [Security Learning Roadmap](../00-start-here/security-learning-roadmap.md#unit-5-secure-delivery-and-security-operations) connects this evidence to operations.
+
 ## Phase 11 — Software Supply Chain
 
 The supply chain includes developer identity, source host, dependencies, build workers, CI templates, package registries, container bases, artifacts, deployment identities, and runtime admission. A scanner covers only part of this attack surface.
@@ -109,4 +111,4 @@ Do not use raw finding count or a single synthetic score as proof of security im
 
 **Adaptive branch:** If severity alone drives the decision, reverse severity and exposure. If the decision is mature, make the critical gate unavailable during an emergency patch.
 
-**Next:** [Sequence 5 — Operations, incidents, vulnerabilities, and governance](05-security-operations-governance.md).
+**Next:** [Sequence 5 — Operations, incidents, vulnerabilities, and governance](security-operations-governance.md).

@@ -4,14 +4,12 @@ You already know how to build systems that work for customers. This guide helps 
 
 ```mermaid
 flowchart LR
-    F[Fundamentals] --> I[Intermediate]
-    I --> A[Advanced]
-    A --> R[Reference and Practice]
-
-    style F fill:#1976d2,color:#fff
-    style I fill:#1976d2,color:#fff
-    style A fill:#ff9800,color:#fff
-    style R fill:#ff9800,color:#fff
+    RM[Security Learning Roadmap] --> ST[Security Thinking and Trust]
+    ST --> IA[Identity and Access]
+    IA --> AD[Application and Data Protection]
+    AD --> PR[Platform and Runtime Security]
+    PR --> SO[Secure Operations and Delivery]
+    SO --> AL[Architecture and Leadership]
 ```
 
 ## Why This Guide Exists
@@ -22,14 +20,14 @@ You asked for a CISO-style plan that teaches security considerations and securit
 
 | Section | Outcome | Difficulty |
 |---|---|---|
-| Sequences 1–2 | Security thinking, threats, identity, APIs, applications, and data | Foundation |
-| Sequences 3–4 | GCP, Kubernetes, networks, cryptography, supply chain, and CI/CD | Practitioner |
-| Sequences 5–6 | Incidents, observability, vulnerabilities, governance, architecture, AI, and FDE leadership | Advanced |
+| Units 1–3 | Security thinking, threats, identity, APIs, applications, and data | Foundation |
+| Units 4–5 | GCP, Kubernetes, networks, cryptography, supply chain, operations, and governance | Practitioner |
+| Unit 6 | Architecture, AI, and FDE leadership | Advanced |
 | Reference | Fast lookup, regression packs, standards, and runbooks | All levels |
 
 ## Curriculum Operating Model
 
-Use the [Enterprise Security Capability Map](00-introduction/02-capability-map.md) as the complete domain index. Every module evolves the same [reference enterprise system](00-introduction/02-reference-enterprise-system.md), and the [adaptive learning system](00-introduction/03-adaptive-learning-system.md) selects exercises from demonstrated gaps rather than pages completed. For enterprise delivery work, apply current organizational guardrails and verify every requirement against authoritative internal policy.
+Start with the [Security Learning Roadmap](00-start-here/security-learning-roadmap.md), then use the [Enterprise Security Capability Map](00-start-here/capability-map.md) as the complete domain index. Every module evolves the same [reference enterprise system](00-start-here/reference-enterprise-system.md), and the [adaptive learning system](00-start-here/adaptive-learning-system.md) selects exercises from demonstrated gaps rather than pages completed. For enterprise delivery work, apply current organizational guardrails and verify every requirement against authoritative internal policy.
 
 The guide separates four kinds of content so it remains maintainable:
 
@@ -41,13 +39,13 @@ The guide separates four kinds of content so it remains maintainable:
 ## Quick Navigation
 
 === "First 30 Days"
-    Complete [Sequence 1](04-curriculum/01-security-thinking-threats-identity.md) and [Sequence 2](04-curriculum/02-api-application-data.md). Produce a threat model, identity matrix, API deny tests, and data-flow classification.
+    Complete [Unit 1](01-security-thinking-trust/applied-security-thinking-threats-identity.md) and [Unit 3](03-application-data/applied-api-application-data.md). Produce a threat model, identity matrix, API deny tests, and data-flow classification.
 
 === "60 Day Builder"
-    Complete [Sequence 3](04-curriculum/03-cloud-platform-network-crypto.md) and [Sequence 4](04-curriculum/04-supply-chain-cicd.md). Produce cloud/platform control evidence and a verifiable secure delivery path.
+    Complete [Unit 4](04-platform-runtime/applied-cloud-platform-network-crypto.md) and [secure delivery](05-secure-delivery-operations/software-supply-chain-cicd.md). Produce cloud/platform control evidence and a verifiable secure delivery path.
 
 === "90 Day Leader"
-    Complete [Sequence 5](04-curriculum/05-security-operations-governance.md) and [Sequence 6](04-curriculum/06-architecture-ai-fde.md). Lead an incident exercise and defend the final architecture capstone.
+    Complete [security operations](05-secure-delivery-operations/security-operations-governance.md) and [Unit 6](06-architecture-leadership/security-architecture-ai-fde.md). Lead an incident exercise and defend the final architecture capstone.
 
 ## Real-World Execution Starter
 

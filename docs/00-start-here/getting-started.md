@@ -22,12 +22,12 @@ Moving into enterprise security can feel overwhelming because the problem space 
 
 ## Recommended Reading Flow
 
-Start with the [capability map](00-introduction/02-capability-map.md), then learn the [reference enterprise system](00-introduction/02-reference-enterprise-system.md). Use the [adaptive learning system](00-introduction/03-adaptive-learning-system.md) after each exercise. For enterprise delivery work, apply current organizational guardrails throughout rather than waiting until the end, and verify requirements against authoritative internal policy.
+Start with the [Security Learning Roadmap](security-learning-roadmap.md). It connects each concept article to the relevant applied curriculum sequence and evidence gate. Then learn the [reference enterprise system](reference-enterprise-system.md), use the [capability map](capability-map.md) to identify gaps, and apply the [adaptive learning system](adaptive-learning-system.md) after each exercise. For enterprise delivery work, apply current organizational guardrails throughout rather than waiting until the end, and verify requirements against authoritative internal policy.
 
 ```mermaid
 flowchart TB
-    S[Start] --> P[Learning Path]
-    P --> CM[Capability Map]
+    S[Start] --> RM[Security Learning Roadmap]
+    RM --> CM[Capability Map]
     CM --> RS[Reference Enterprise System]
     RS --> S1[1 Thinking, Threats, Identity]
     S1 --> S2[2 API, Application, Data]
@@ -110,7 +110,7 @@ If you are about to push this project to GitHub, run these steps in order.
     - `security-score.json` is generated.
 6. Start tracking weekly score trend in your team notes.
 
-See detailed onboarding steps in [reference/04-github-security-automation.md](reference/04-github-security-automation.md).
+See detailed onboarding steps in [GitHub Security Automation](../07-reference/04-github-security-automation.md).
 
 ```bash
 # one-time setup before first push

@@ -156,7 +156,7 @@ jobs:
                 path: security-score.json
 ```
 
-Production-ready rollout instructions live in [reference/04-github-security-automation.md](../reference/04-github-security-automation.md).
+Production-ready rollout instructions live in [reference/04-github-security-automation.md](../07-reference/04-github-security-automation.md).
 
 ## Production Rollout Checklist (Actionable)
 

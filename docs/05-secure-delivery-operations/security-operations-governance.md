@@ -2,6 +2,8 @@
 
 **Phases 13–16 · Prerequisite:** Sequence 4 · **Outcome:** detect and manage risk continuously, respond safely, and translate governance into engineering behavior.
 
+**Learning thread:** Reuse the attack paths, identities, API failures, network boundaries, and secrets from Units 1–4 as detection and incident inputs. This sequence turns prior design evidence into tested operations, risk prioritization, and governance rather than introducing a disconnected security domain.
+
 ## Phase 13 — Incident Response
 
 ```text
@@ -150,4 +152,4 @@ Use current authoritative DaVita policy and control sources. Do not infer compli
 
 **Adaptive branch:** If a framework name is treated as proof, ask for operating evidence. If strong, introduce conflicting delivery, privacy, and availability objectives.
 
-**Next:** [Sequence 6 — Architecture, AI security, and FDE leadership](06-architecture-ai-fde.md).
+**Next:** [Sequence 6 — Architecture, AI security, and FDE leadership](../06-architecture-leadership/security-architecture-ai-fde.md).

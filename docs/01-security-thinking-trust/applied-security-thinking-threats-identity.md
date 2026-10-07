@@ -2,7 +2,9 @@
 
 **Phases 1–3 · Prerequisite:** senior engineering experience · **Outcome:** reason from assets and trust instead of controls and products.
 
-Use the [reference enterprise system](../00-introduction/02-reference-enterprise-system.md). Complete each phase in order because identity decisions depend on the threat model, and the threat model depends on a sound risk vocabulary.
+Use the [reference enterprise system](../00-start-here/reference-enterprise-system.md). Complete each phase in order because identity decisions depend on the threat model, and the threat model depends on a sound risk vocabulary.
+
+**Concept reading thread:** [Security Fundamentals](security-fundamentals.md) → [Password Storage](../02-identity-access/password-storage.md) and [Authentication Mechanisms](../02-identity-access/authentication-mechanisms.md) → [Sessions, Tokens, and JWT](../02-identity-access/sessions-tokens-jwt.md) → [OAuth 2.0 and OIDC](../02-identity-access/oauth2-oidc.md) → [Enterprise SSO](../02-identity-access/enterprise-sso.md) → [Authorization Models](../02-identity-access/authorization-models.md). Use the articles for concepts, then complete the sessions below to apply them and produce evidence.
 
 ## Phase 1 — Security Mental Model
 
@@ -126,4 +128,4 @@ Do not use ID-token claims as permanent application permissions without lifecycl
 
 **Adaptive branch:** If network location is used as trust, expose the service through a compromised internal workload. If the design is strong, require break-glass access during an IdP outage.
 
-**Next:** [Sequence 2 — API, application, and data security](02-api-application-data.md).
+**Next:** [Sequence 2 — API, application, and data security](../03-application-data/applied-api-application-data.md).
